@@ -7,7 +7,16 @@ function computerPlay() {
     return computerChoice;
 }
 
-//  console.log(`The computer chose: ${computerPlay()}`);
+let string = prompt("Please choose Rock, Paper or Scissors");
+
+function capitalize(string) {
+  newString = string.toLowerCase()
+  uncapitalizedEnd = newString.slice(1)
+  capitalLetter = string.charAt(0)
+  newString2 = capitalLetter.toUpperCase() + uncapitalizedEnd
+
+  return newString2
+}
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
@@ -18,7 +27,6 @@ function playRound(playerSelection, computerSelection) {
         playerSelection === "Paper" && computerSelection === "Rock" ||
         playerSelection === "Scissors" && computerSelection === "Paper"
         ) {
-        console.log(`computer: ${computerSelection}`);
         let winState = `You won! ${playerSelection} beats ${computerSelection}.`;
         return winState
     } else {
@@ -26,7 +34,7 @@ function playRound(playerSelection, computerSelection) {
         return winState
     }
 }
-const playerSelection = "Rock";
+const playerSelection = capitalize(string);
 const computerSelection = computerPlay();
 
 console.log(`You chose: ${playerSelection}`);
