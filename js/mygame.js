@@ -17,29 +17,60 @@ function capitalize(string) {
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
-        let winState = "Draw!";
+        let winState = "draw"
+        console.log("Draw!");
         return winState;
     } else if (
         playerSelection === "Rock" && computerSelection === "Scissors" ||
         playerSelection === "Paper" && computerSelection === "Rock" ||
         playerSelection === "Scissors" && computerSelection === "Paper"
         ) {
-        let winState = `You won! ${playerSelection} beats ${computerSelection}.`;
+        let winState = "win"
+        console.log(`You win! ${playerSelection} beats ${computerSelection}.`);
         return winState;
     } else {
-        let winState = `You lost! ${computerSelection} beats ${playerSelection}.`;
+        let winState = "lose"
+        console.log(`You lose! ${computerSelection} beats ${playerSelection}.`);
         return winState;
     }
 }
 
+function updatePlayerScore(playerScore, winState) {
+    if (winState === "win") {
+        return ++playerScore;
+    } else {
+        console.log(playerScore);
+        return playerScore;
+    }
+}
+
+function updateComputerScore(computerScore, winState) {
+    if (winState === "lose") {
+        return ++computerScore;
+    } else {
+        return computerScore;
+    }
+}
+
+function showScore(updatedPlayerScore, updatedComputerScore) {
+    return console.log(`You have ${updatedPlayerScore} points, the computer has ${updatedComputerScore} points`);
+}
+
 function game() {
+    let playerScore = 0;
+    let computerScore = 0;
     for (let i = 0; i < 5; i++) {
         let string = prompt("Please choose Rock, Paper or Scissors");
         let playerSelection = capitalize(string);
         let computerSelection = computerPlay();
+        console.log(`The current score is ${playerScore} for the player against ${computerScore} for the computer.`)
         console.log(`You chose: ${playerSelection}`);
         console.log(`The computer chose: ${computerSelection}`);
-        console.log(playRound(playerSelection, computerSelection));
+        let winState = playRound(playerSelection, computerSelection);
+        playerScore = updatePlayerScore(playerScore, winState);
+        computerScore = updateComputerScore(computerScore, winState);
+        let score = showScore(playerScore, computerScore);
+        console.log(score);
     }
     console.log("Game over man.");
 }
