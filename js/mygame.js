@@ -7,14 +7,29 @@ function computerPlay() {
     return computerChoice;
 }
 
-function capitalize(string) {
-    newString = string.toLowerCase();
-    uncapitalizedEnd = newString.slice(1);
-    capitalLetter = string.charAt(0);
-    capitalizedString = capitalLetter.toUpperCase() + uncapitalizedEnd;
-    return capitalizedString;
-}
+//function capitalize(string) {
+//    newString = string.toLowerCase();
+//    uncapitalizedEnd = newString.slice(1);
+//    capitalLetter = string.charAt(0);
+//    capitalizedString = capitalLetter.toUpperCase() + uncapitalizedEnd;
+//    return capitalizedString;
+//}
 
+function playerPlay() {
+    const rock = document.querySelector('#btnRock');
+    const paper = document.querySelector('#btnPaper');
+    const scissors = document.querySelector('#btnScissors');
+    play = rock.addEventListener('click', function (e) {
+        return e.target.innerHTML;
+    });
+    play = paper.addEventListener('click', function (e) {
+        return e.target.innerHTML;
+    });
+    play = scissors.addEventListener('click', function (e) {
+        return e.target.innerHTML;
+    });
+    return play
+}
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
         let winState = "draw"
@@ -59,11 +74,11 @@ function showScore(updatedPlayerScore, updatedComputerScore) {
 function game() {
     let playerScore = 0;
     let computerScore = 0;
-    for (let i = 0; i < 5; i++) {
-        let string = prompt("Please choose Rock, Paper or Scissors");
-        let playerSelection = capitalize(string);
+//    for (let i = 0; i < 5; i++) {
+//        let string = prompt("Please choose Rock, Paper or Scissors");
+        let playerSelection = playerPlay();
         let computerSelection = computerPlay();
-        console.log(`The current score is ${playerScore} for the player against ${computerScore} for the computer.`)
+        console.log(`The current score is ${playerScore} for the player against ${computerScore} for the computer.`);
         console.log(`You chose: ${playerSelection}`);
         console.log(`The computer chose: ${computerSelection}`);
         let winState = playRound(playerSelection, computerSelection);
@@ -71,7 +86,7 @@ function game() {
         computerScore = updateComputerScore(computerScore, winState);
         let score = showScore(playerScore, computerScore);
         console.log(score);
-    }
+//    }
     console.log("Game over man.");
 }
 

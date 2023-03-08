@@ -2,25 +2,61 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <script type="text/javascript" src="/js/mygame.js"></script>
+    <script type="text/javascript" src="/js/mygame.js" defer></script>
     <title>Rock Paper Scissors</title>
     <style>
+        html {
+          background-color: black;
+        }
+        
         h1 {
-            font-family: monospace;
-            font-size: 40px;
-            text-align: center;
+          font-family: monospace;
+          font-size: 40px;
+          color:aliceblue;
+          text-align: center;
         }
 
         h2 {
-            font-family: monospace;
-            font-size: 30px;
-            text-align: center;
+          font-family: monospace;
+          font-size: 30px;
+          color:aliceblue;
+          text-align: center;
+        }
+
+        h3 {
+          font-family: monospace;
+          font-size: 20px;
+          color:aliceblue;
+          text-align: center;
+        }
+
+        button {
+          font-family: monospace;
+          font-size: 25px;
+          font-weight: bold;
+          color: #FF4F00;
+          border-radius: 5px;
+          border-color: white;
+          background-color:azure;
+          text-align: center;
+        }
+
+        #buttons {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
         }
     </style>
   </head>
   <body>
     <h1>Rock Paper Scissors</h1>
     <h2>(Work in progress)</h2>
+    <h3>Please choose!</h3>
+    <div id="buttons">
+      <button id="btnRock">Rock</button>
+      <button id="btnPaper">Paper</button>
+      <button id="btnScissors">Scissors</button>
+    </div>
   </body>
   
   </html>
