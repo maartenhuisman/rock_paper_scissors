@@ -1,35 +1,22 @@
 console.log("Hello player!");
 console.log("Let's play 5 rounds of Rock paper scissors")
 
+const rock = document.querySelector('#btnRock');
+const paper = document.querySelector('#btnPaper');
+const scissors = document.querySelector('#btnScissors');
+let playerScore = 0;
+let computerScore = 0;
+
+rock.addEventListener('click', () => { game("Rock") })
+paper.addEventListener('click', () => { game("Paper") })
+scissors.addEventListener('click', () => { game("Scissors") })
+
 function computerPlay() {
     const computerOptions = ["Rock", "Paper", "Scissors"];
     const computerChoice = computerOptions[Math.floor(Math.random() * computerOptions.length)];
     return computerChoice;
 }
 
-//function capitalize(string) {
-//    newString = string.toLowerCase();
-//    uncapitalizedEnd = newString.slice(1);
-//    capitalLetter = string.charAt(0);
-//    capitalizedString = capitalLetter.toUpperCase() + uncapitalizedEnd;
-//    return capitalizedString;
-//}
-
-function playerPlay() {
-    const rock = document.querySelector('#btnRock');
-    const paper = document.querySelector('#btnPaper');
-    const scissors = document.querySelector('#btnScissors');
-    play = rock.addEventListener('click', function (e) {
-        return e.target.innerHTML;
-    });
-    play = paper.addEventListener('click', function (e) {
-        return e.target.innerHTML;
-    });
-    play = scissors.addEventListener('click', function (e) {
-        return e.target.innerHTML;
-    });
-    return play
-}
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
         let winState = "draw"
@@ -54,7 +41,6 @@ function updatePlayerScore(playerScore, winState) {
     if (winState === "win") {
         return ++playerScore;
     } else {
-        console.log(playerScore);
         return playerScore;
     }
 }
@@ -71,23 +57,18 @@ function showScore(updatedPlayerScore, updatedComputerScore) {
     return console.log(`You have ${updatedPlayerScore} points, the computer has ${updatedComputerScore} points`);
 }
 
-function game() {
-    let playerScore = 0;
-    let computerScore = 0;
+function game(playerChoice) {
 //    for (let i = 0; i < 5; i++) {
 //        let string = prompt("Please choose Rock, Paper or Scissors");
-        let playerSelection = playerPlay();
-        let computerSelection = computerPlay();
-        console.log(`The current score is ${playerScore} for the player against ${computerScore} for the computer.`);
-        console.log(`You chose: ${playerSelection}`);
-        console.log(`The computer chose: ${computerSelection}`);
-        let winState = playRound(playerSelection, computerSelection);
-        playerScore = updatePlayerScore(playerScore, winState);
-        computerScore = updateComputerScore(computerScore, winState);
-        let score = showScore(playerScore, computerScore);
-        console.log(score);
-//    }
-    console.log("Game over man.");
+    let playerSelection = playerChoice;
+    let computerSelection = computerPlay();
+    console.log(`The current score is player: ${playerScore}, Computer: ${computerScore}.`);
+    console.log(`You chose: ${playerSelection}, the computer chose: ${computerSelection}.`);
+    let winState = playRound(playerSelection, computerSelection);
+    playerScore = updatePlayerScore(playerScore, winState);
+    computerScore = updateComputerScore(computerScore, winState);
+    showScore(playerScore, computerScore);
+    console.log('---------NEW ROUND----------')
 }
-
-game();
+//    console.log("Game over man.");
+//}
