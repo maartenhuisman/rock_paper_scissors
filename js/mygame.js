@@ -1,23 +1,27 @@
-console.log("Hello player!");
-console.log("Let's play 5 rounds of Rock paper scissors")
-
 const rock = document.querySelector('#btnRock');
 const paper = document.querySelector('#btnPaper');
 const scissors = document.querySelector('#btnScissors');
+
 let playerScore = 0;
 let computerScore = 0;
-
-const container = document.querySelector('#container');
-
-const content = document.createElement('div');
-content.classList.add('content');
-content.textContent = 'This is text is generated from code!';
-
-container.appendChild(content);
 
 rock.addEventListener('click', () => { game("Rock") })
 paper.addEventListener('click', () => { game("Paper") })
 scissors.addEventListener('click', () => { game("Scissors") })
+
+const scoreContainer = document.querySelector('#scoreContainer');
+const scoreContent = document.createElement('div');
+
+scoreContent.classList.add('scoreContent');
+scoreContent.textContent = 'The current score is 0 - 0';
+scoreContainer.appendChild(scoreContent);
+
+const resultContainer = document.querySelector('#resultContainer');
+const resultContent = document.createElement('div');
+
+resultContent.classList.add('resultContent');
+resultContent.textContent = 'Please choose!';
+resultContainer.appendChild(resultContent);
 
 function computerPlay() {
     const computerOptions = ["Rock", "Paper", "Scissors"];
@@ -62,12 +66,13 @@ function updateComputerScore(computerScore, winState) {
 }
 
 function showScore(updatedPlayerScore, updatedComputerScore) {
-    return console.log(`You have ${updatedPlayerScore} points, the computer has ${updatedComputerScore} points`);
+    return scoreContent.textContent = `You have ${updatedPlayerScore} points, the computer has ${updatedComputerScore} points`;
 }
 
 function game(playerChoice) {
 //    for (let i = 0; i < 5; i++) {
 //        let string = prompt("Please choose Rock, Paper or Scissors");
+    console.log('---------NEW ROUND----------')
     let playerSelection = playerChoice;
     let computerSelection = computerPlay();
     console.log(`The current score is player: ${playerScore}, Computer: ${computerScore}.`);
@@ -76,7 +81,7 @@ function game(playerChoice) {
     playerScore = updatePlayerScore(playerScore, winState);
     computerScore = updateComputerScore(computerScore, winState);
     showScore(playerScore, computerScore);
-    console.log('---------NEW ROUND----------')
+    return resultContent.textContent = winState;
 }
 //    console.log("Game over man.");
 //}
