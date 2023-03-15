@@ -7,6 +7,14 @@ const scissors = document.querySelector('#btnScissors');
 let playerScore = 0;
 let computerScore = 0;
 
+const container = document.querySelector('#container');
+
+const content = document.createElement('div');
+content.classList.add('content');
+content.textContent = 'This is text is generated from code!';
+
+container.appendChild(content);
+
 rock.addEventListener('click', () => { game("Rock") })
 paper.addEventListener('click', () => { game("Paper") })
 scissors.addEventListener('click', () => { game("Scissors") })
