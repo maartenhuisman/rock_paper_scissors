@@ -9,19 +9,27 @@ rock.addEventListener('click', () => { game("Rock") })
 paper.addEventListener('click', () => { game("Paper") })
 scissors.addEventListener('click', () => { game("Scissors") })
 
-const scoreContainer = document.querySelector('#scoreContainer');
-const scoreContent = document.createElement('div');
+const playerChoiceContainer = document.querySelector('#playerChoiceContainer');
+const playerChoiceContent = document.createElement('div');
 
-scoreContent.classList.add('scoreContent');
-scoreContent.textContent = 'The current score is 0 - 0';
-scoreContainer.appendChild(scoreContent);
+playerChoiceContent.classList.add('playerChoiceContent');
+playerChoiceContent.textContent = 'Please choose!';
+playerChoiceContainer.appendChild(playerChoiceContent);
+
 
 const resultContainer = document.querySelector('#resultContainer');
 const resultContent = document.createElement('div');
 
 resultContent.classList.add('resultContent');
-resultContent.textContent = 'Please choose!';
+resultContent.textContent = 'No round played yet..';
 resultContainer.appendChild(resultContent);
+
+const scoreContainer = document.querySelector('#scoreContainer');
+const scoreContent = document.createElement('div');
+
+scoreContent.classList.add('scoreContent');
+scoreContent.textContent = 'You: 0 Computer: 0';
+scoreContainer.appendChild(scoreContent);
 
 function computerPlay() {
     const computerOptions = ["Rock", "Paper", "Scissors"];
@@ -66,7 +74,7 @@ function updateComputerScore(computerScore, winState) {
 }
 
 function showScore(updatedPlayerScore, updatedComputerScore) {
-    return scoreContent.textContent = `You have ${updatedPlayerScore} points, the computer has ${updatedComputerScore} points`;
+    return scoreContent.textContent = `You: ${updatedPlayerScore} - Computer: ${updatedComputerScore}`;
 }
 
 function game(playerChoice) {

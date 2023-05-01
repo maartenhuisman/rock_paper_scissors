@@ -32,7 +32,7 @@
 
         button {
           font-family: monospace;
-          font-size: 25px;
+          font-size: 40px;
           font-weight: bold;
           color: #FF4F00;
           border-radius: 5px;
@@ -47,10 +47,19 @@
           justify-content: center;
         }
 
-        #resultContainer {
+        #choiceContainer {
           font-family: monospace;
           font-size: 20px;
           color: #FF4F00;
+          margin: 20px;
+          text-align: center;
+        }
+
+        #resultContainer {
+          font-family: 'Helvetica';
+          font-size: 50px;
+          color: #FF4F00;
+          font-weight: bolder;
           margin: 20px;
           text-align: center;
         }
@@ -66,14 +75,30 @@
   </head>
   <body>
     <h1>Rock Paper Scissors</h1>
-    <h2>(Work in progress)</h2>
+    <h2>Please choose!</h2>
     <div id="buttons">
       <button id="btnRock">Rock</button>
       <button id="btnPaper">Paper</button>
       <button id="btnScissors">Scissors</button>
     </div>
-    <div id="resultContainer"></div>
+    <div>
+      <h3>Your choice</h3>
+    </div>
+    <div id="playerChoiceContainer"></div>
+    <div>
+    <div>
+      <h3>Computer's choice</h3>
+    </div>
+    <div id="playerChoiceContainer"></div>
+    <div>
+      <h3>Score</h3>
+    </div>
     <div id="scoreContainer"></div>
+    <div>
+      <h3>Result</h3>
+    </div>
+    <div id="resultContainer"></div>
+    
   </body>
   
   </html>
