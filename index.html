@@ -7,15 +7,18 @@
     <style>
         html {
           background-color: rgba(0, 0, 0, 0.822);
+          display: flex;
+          justify-content: center;
         }
-        
+
         h1 {
           font-family: monospace;
-          font-size: 70px;
+          font-size: 50px;
           text-shadow: -1px 1px #FF4F00;
           color: #00c4ff;
           text-align: center;
           padding: 5px;
+          margin: 5px;
         }
 
         h2 {
@@ -35,15 +38,30 @@
         }
 
         button {
-          font-family: monospace;
+          font-family: Helvetica;
           font-size: 40px;
-          font-weight: bold;
+          font-weight: bolder;
           color: #00c4ff;
-          border-radius: 5px;
+          border-radius: 10px;
           border-color: #ff4f00;
-          background-color:azure;
+          background-color:#ff51001e;
           text-align: center;
           margin: 5px;
+          width: 220px;
+          height: 110px;
+        }
+
+        #playArea {
+          margin-top: 20px;
+          width: 750px;
+          height: 660px;
+          background-color: rgba(0, 0, 0, 0.21);
+          padding: 20px;
+          border-radius: 25px;
+          outline: 5px;
+          border: 20px solid azure;
+          box-shadow: -1px -1px #00c4ff;
+          border-width: 2px;
         }
 
         #buttons {
@@ -52,7 +70,7 @@
           justify-content: center;
         }
 
-        #Choices {
+        #choices {
           display: flex;
           flex-direction: row;
           justify-content: center;
@@ -60,25 +78,27 @@
 
         #playerChoiceContainer {
           font-family: Helvetica;
-          font-size: 40px;
+          font-size: 30px;
           color: #FF4F00;
           font-weight: bolder;
           margin: 20px;
           text-align: center;
+          width: 200px;
         }
 
         #computerChoiceContainer {
           font-family: Helvetica;
-          font-size: 40px;
+          font-size: 30px;
           color: #FF4F00;
           font-weight: bolder;
           margin: 20px;
           text-align: center;
+          width: 200px;
         }
 
         #resultContainer {
           font-family: Helvetica;
-          font-size: 60px;
+          font-size: 40px;
           color: #FF4F00;
           font-weight: bolder;
           margin: 20px;
@@ -87,7 +107,7 @@
 
         #scoreContainer {
           font-family: monospace;
-          font-size: 20px;
+          font-size: 25px;
           color: #FF4F00;
           margin: 20px;
           text-align: center;
@@ -95,38 +115,40 @@
     </style>
   </head>
   <body>
-    <h1>Rock Paper Scissors</h1>
-    <h2>Pick one!</h2>
-    <div id="buttons">
-      <button id="btnRock">Rock</button>
-      <button id="btnPaper">Paper</button>
-      <button id="btnScissors">Scissors</button>
-    </div>
-    <div id="Choices">
-      <div>
-        <div id="playerChoiceContainer">
-          <div>
-            <h3>You</h3>
+    <div id="playArea">
+      <h1>Rock < Paper < Scissors</h1>
+      <h2>Pick one!</h2>
+      <div id="buttons">
+        <button id="btnRock">Rock</button>
+        <button id="btnPaper">Paper</button>
+        <button id="btnScissors">Scissors</button>
+      </div>
+      <div id="choices">
+        <div>
+          <div id="playerChoiceContainer">
+            <div>
+              <h3>You</h3>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div id="computerChoiceContainer">
+            <div>
+              <h3>Computer</h3>
+            </div>
           </div>
         </div>
       </div>
-      <div>
-        <div id="computerChoiceContainer">
-          <div>
-            <h3>Computer</h3>
-          </div>
+      <div id="resultContainer">
+        <div>
+          <h3>Result</h3>
+        </div>
+      </div>
+      <div id="scoreContainer">
+        <div>
+          <h3>Score</h3>
         </div>
       </div>
     </div>
-    <div id="resultContainer">
-      <div>
-        <h3>Result</h3>
-      </div>
-    </div>
-    <div id="scoreContainer">
-      <div>
-        <h3>Score</h3>
-      </div>
-    </div> 
   </body>
   </html>
