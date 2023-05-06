@@ -9,13 +9,23 @@ rock.addEventListener('click', () => { game("Rock") })
 paper.addEventListener('click', () => { game("Paper") })
 scissors.addEventListener('click', () => { game("Scissors") })
 
+rock.addEventListener('click', () => { returnPlayerChoice("Rock") })
+paper.addEventListener('click', () => { returnPlayerChoice("Paper") })
+scissors.addEventListener('click', () => { returnPlayerChoice("Scissors") })
+
 const playerChoiceContainer = document.querySelector('#playerChoiceContainer');
 const playerChoiceContent = document.createElement('div');
 
 playerChoiceContent.classList.add('playerChoiceContent');
-playerChoiceContent.textContent = 'Please choose!';
+playerChoiceContent.textContent = ' ';
 playerChoiceContainer.appendChild(playerChoiceContent);
 
+const computerChoiceContainer = document.querySelector('#computerChoiceContainer');
+const computerChoiceContent = document.createElement('div');
+
+computerChoiceContent.classList.add('computerChoiceContent');
+computerChoiceContent.textContent = ' ';
+computerChoiceContainer.appendChild(computerChoiceContent);
 
 const resultContainer = document.querySelector('#resultContainer');
 const resultContent = document.createElement('div');
@@ -80,11 +90,10 @@ function showScore(updatedPlayerScore, updatedComputerScore) {
 function game(playerChoice) {
 //    for (let i = 0; i < 5; i++) {
 //        let string = prompt("Please choose Rock, Paper or Scissors");
-    console.log('---------NEW ROUND----------')
     let playerSelection = playerChoice;
     let computerSelection = computerPlay();
-    console.log(`The current score is player: ${playerScore}, Computer: ${computerScore}.`);
-    console.log(`You chose: ${playerSelection}, the computer chose: ${computerSelection}.`);
+    playerChoiceContent.textContent = playerChoice;
+    computerChoiceContent.textContent = computerSelection;
     let winState = playRound(playerSelection, computerSelection);
     playerScore = updatePlayerScore(playerScore, winState);
     computerScore = updateComputerScore(computerScore, winState);

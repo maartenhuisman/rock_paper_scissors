@@ -14,6 +14,7 @@
           font-size: 40px;
           color:aliceblue;
           text-align: center;
+          padding: 5px;
         }
 
         h2 {
@@ -21,13 +22,15 @@
           font-size: 30px;
           color:aliceblue;
           text-align: center;
+          padding: 5px;
         }
 
         h3 {
           font-family: monospace;
-          font-size: 20px;
+          font-size: 25px;
           color:aliceblue;
           text-align: center;
+          padding: 5px;
         }
 
         button {
@@ -39,6 +42,7 @@
           border-color: white;
           background-color:azure;
           text-align: center;
+          margin: 5px;
         }
 
         #buttons {
@@ -47,17 +51,33 @@
           justify-content: center;
         }
 
+        #Choices {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+        }
+
         #playerChoiceContainer {
-          font-family: monospace;
-          font-size: 20px;
+          font-family: Helvetica;
+          font-size: 40px;
           color: #FF4F00;
+          font-weight: bolder;
+          margin: 20px;
+          text-align: center;
+        }
+
+        #computerChoiceContainer {
+          font-family: Helvetica;
+          font-size: 40px;
+          color: #FF4F00;
+          font-weight: bolder;
           margin: 20px;
           text-align: center;
         }
 
         #resultContainer {
-          font-family: 'Helvetica';
-          font-size: 50px;
+          font-family: Helvetica;
+          font-size: 60px;
           color: #FF4F00;
           font-weight: bolder;
           margin: 20px;
@@ -75,30 +95,37 @@
   </head>
   <body>
     <h1>Rock Paper Scissors</h1>
-    <h2>Please choose!</h2>
+    <h2>Pick one!</h2>
     <div id="buttons">
       <button id="btnRock">Rock</button>
       <button id="btnPaper">Paper</button>
       <button id="btnScissors">Scissors</button>
     </div>
-    <div>
-      <h3>Your choice</h3>
+    <div id="Choices">
+      <div>
+        <div id="playerChoiceContainer">
+          <div>
+            <h3>You</h3>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div id="computerChoiceContainer">
+          <div>
+            <h3>Computer</h3>
+          </div>
+        </div>
+      </div>
     </div>
-    <div id="playerChoiceContainer"></div>
-    <div>
-    <div>
-      <h3>Computer's choice</h3>
+    <div id="resultContainer">
+      <div>
+        <h3>Result</h3>
+      </div>
     </div>
-    <div id="playerChoiceContainer"></div>
-    <div>
-      <h3>Score</h3>
-    </div>
-    <div id="scoreContainer"></div>
-    <div>
-      <h3>Result</h3>
-    </div>
-    <div id="resultContainer"></div>
-    
+    <div id="scoreContainer">
+      <div>
+        <h3>Score</h3>
+      </div>
+    </div> 
   </body>
-  
   </html>
