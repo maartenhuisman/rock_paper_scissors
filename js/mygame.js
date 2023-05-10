@@ -5,9 +5,9 @@ const scissors = document.querySelector('#btnScissors');
 let playerScore = 0;
 let computerScore = 0;
 
-rock.addEventListener('click', () => { game("Rock") })
-paper.addEventListener('click', () => { game("Paper") })
-scissors.addEventListener('click', () => { game("Scissors") })
+rock.addEventListener('click', () => { round("Rock") })
+paper.addEventListener('click', () => { round("Paper") })
+scissors.addEventListener('click', () => { round("Scissors") })
 
 rock.addEventListener('click', () => { returnPlayerChoice("Rock") })
 paper.addEventListener('click', () => { returnPlayerChoice("Paper") })
@@ -47,10 +47,9 @@ function computerPlay() {
     return computerChoice;
 }
 
-function playRound(playerSelection, computerSelection) {
+function roundResult(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
         let winState = "draw"
-        console.log("Draw!");
         return winState;
     } else if (
         playerSelection === "Rock" && computerSelection === "Scissors" ||
@@ -58,11 +57,9 @@ function playRound(playerSelection, computerSelection) {
         playerSelection === "Scissors" && computerSelection === "Paper"
         ) {
         let winState = "win"
-        console.log(`You win! ${playerSelection} beats ${computerSelection}.`);
         return winState;
     } else {
         let winState = "lose"
-        console.log(`You lose! ${computerSelection} beats ${playerSelection}.`);
         return winState;
     }
 }
@@ -87,18 +84,14 @@ function showScore(updatedPlayerScore, updatedComputerScore) {
     return scoreContent.textContent = `You: ${updatedPlayerScore} - Computer: ${updatedComputerScore}`;
 }
 
-function game(playerChoice) {
-//    for (let i = 0; i < 5; i++) {
-//        let string = prompt("Please choose Rock, Paper or Scissors");
+function round(playerChoice) {
     let playerSelection = playerChoice;
     let computerSelection = computerPlay();
     playerChoiceContent.textContent = playerChoice;
     computerChoiceContent.textContent = computerSelection;
-    let winState = playRound(playerSelection, computerSelection);
+    let winState = roundResult(playerSelection, computerSelection);
     playerScore = updatePlayerScore(playerScore, winState);
     computerScore = updateComputerScore(computerScore, winState);
     showScore(playerScore, computerScore);
     return resultContent.textContent = winState;
 }
-//    console.log("Game over man.");
-//}
