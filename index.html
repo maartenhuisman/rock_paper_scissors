@@ -38,7 +38,7 @@
           padding: 5px;
         }
 
-        button {
+        .playerChoiceButtons {
           font-family: Helvetica;
           font-size: 40px;
           font-weight: bolder;
@@ -64,7 +64,27 @@
           border-width: 2px;
         }
 
-        #buttons {
+        #startGame {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+        }
+
+        #btnStart {
+          font-family: Helvetica;
+          font-size: 100px;
+          font-weight: bolder;
+          color: #00c4ff;
+          border-radius: 300px;
+          border-color: #ff4f00;
+          background-color:#ff510054;
+          text-align: center;
+          margin: 5px;
+          width: 300px;
+          height: 300px;
+        }
+
+        #gameButtonContainer {
           display: flex;
           flex-direction: row;
           justify-content: center;
@@ -120,11 +140,15 @@
     <div id="playArea">
       <!--<img src="/img/RPSAligned4K.jpg" alt="Rocks, papers & scissors in a patterned grid" width="2160" height="3840">-->
       <h1>Rock < Paper < Scissors</h1>
+      <div id="startGame">
+        <button id="btnStart">Start</button>
+      </div>
+      
       <h2>Pick one!</h2>
-      <div id="buttons">
-        <button id="btnRock">Rock</button>
-        <button id="btnPaper">Paper</button>
-        <button id="btnScissors">Scissors</button>
+      <div id="gameButtonContainer">
+        <button id="btnRock" class="playerChoiceButtons">Rock</button>
+        <button id="btnPaper" class="playerChoiceButtons">Paper</button>
+        <button id="btnScissors" class="playerChoiceButtons">Scissors</button>
       </div>
       <div id="choices">
         <div>
