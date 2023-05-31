@@ -8,20 +8,25 @@ const gameButtonContainer = document.querySelector('#gameButtonContainer');
 const rockButtonContent = document.createElement('button');
 
 rockButtonContent.id = 'btnRock';
-rockButtonContent.classList.add('rockButtonContent');
+// rockButtonContent.classList.add('rockButtonContent');
+rockButtonContent.classList.add('playerChoiceButtons');
 rockButtonContent.textContent = 'Rock';
 gameButtonContainer.appendChild(rockButtonContent);
 
 const rock = document.querySelector('#btnRock');
 
-rock.addEventListener('click', () => { round("Rock") });
-rock.addEventListener('click', () => { returnPlayerChoice("Rock") });
+rock.addEventListener('click', (eventObject) => { 
+    eventObject.preventDefault(); 
+    round("Rock");
+    returnPlayerChoice("Rock");
+});
 
 // Paper
 const paperButtonContent = document.createElement('button');
 
 paperButtonContent.id = 'btnPaper';
 paperButtonContent.classList.add('paperButtonContent');
+paperButtonContent.classList.add('playerChoiceButtons');
 paperButtonContent.textContent = 'Paper';
 gameButtonContainer.appendChild(paperButtonContent);
 
@@ -33,14 +38,16 @@ paper.addEventListener('click', () => { returnPlayerChoice("Paper") });
 // Scissors
 const scissorsButtonContent = document.createElement('button');
 
+scissorsButtonContent.id = 'btnScissors';
 scissorsButtonContent.classList.add('scissorsButtonContent');
+scissorsButtonContent.classList.add('playerChoiceButtons');
 scissorsButtonContent.textContent = 'Sciccors';
 gameButtonContainer.appendChild(scissorsButtonContent);
 
 const scissors = document.querySelector('#btnScissors');
 
-scissors.addEventListener('click', () => { round("Scissors") })
-scissors.addEventListener('click', () => { returnPlayerChoice("Scissors") })
+scissors.addEventListener('click', () => { round('Scissors') })
+scissors.addEventListener('click', () => { returnPlayerChoice('Scissors') })
 
 // Player Choice
 const playerChoiceContainer = document.querySelector('#playerChoiceContainer');
@@ -120,11 +127,17 @@ function showScore(updatedPlayerScore, updatedComputerScore) {
 function round(playerChoice) {
     let playerSelection = playerChoice;
     let computerSelection = computerPlay();
+    
+    const showScore = () => {
+        console.log("ik ben ook showScore");
+    }
+
     playerChoiceContent.textContent = playerChoice;
     computerChoiceContent.textContent = computerSelection;
     let winState = roundResult(playerSelection, computerSelection);
     playerScore = updatePlayerScore(playerScore, winState);
     computerScore = updateComputerScore(computerScore, winState);
     showScore(playerScore, computerScore);
+
     return resultContent.textContent = winState;
 }
