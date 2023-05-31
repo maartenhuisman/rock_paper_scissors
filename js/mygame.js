@@ -33,6 +33,7 @@ paper.addEventListener('click', () => { returnPlayerChoice("Paper") });
 // Scissors
 const scissorsButtonContent = document.createElement('button');
 
+scissorsButtonContent.id = 'btnScissors';
 scissorsButtonContent.classList.add('scissorsButtonContent');
 scissorsButtonContent.textContent = 'Sciccors';
 gameButtonContainer.appendChild(scissorsButtonContent);
